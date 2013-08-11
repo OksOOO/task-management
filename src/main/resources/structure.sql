@@ -25,9 +25,9 @@ CREATE  TABLE task (
   done BIT default 0 ,
   type_id INT NULL ,
   PRIMARY KEY (id),
-  CONSTRAINT c_create_user_id FOREIGN KEY (create_user_id) REFERENCES users (id),
-  CONSTRAINT c_recipient_user_id FOREIGN KEY (recipient_user_id) REFERENCES users (id),
-  CONSTRAINT c_type_id FOREIGN KEY (type_id) REFERENCES task_type (id));
+  CONSTRAINT c_create_user_id FOREIGN KEY (create_user_id) REFERENCES users (user_id),
+  CONSTRAINT c_recipient_user_id FOREIGN KEY (recipient_user_id) REFERENCES users (user_id),
+  CONSTRAINT c_type_id FOREIGN KEY (type_id) REFERENCES task_type (task_type_id));
   
   CREATE  TABLE attachment (
   attachment_id INT NOT NULL,
@@ -41,10 +41,10 @@ CREATE  TABLE task (
   PRIMARY KEY (task_id, attachment_id) ,
   CONSTRAINT task_id
     FOREIGN KEY (task_id )
-    REFERENCES task (id ),
+    REFERENCES task (task_id ),
   CONSTRAINT attachment_id
     FOREIGN KEY (attachment_id)
-    REFERENCES attachment (id));
+    REFERENCES attachment (attachment_id));
   
 
   
