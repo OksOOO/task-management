@@ -28,6 +28,24 @@ CREATE  TABLE task (
   CONSTRAINT c_create_user_id FOREIGN KEY (create_user_id) REFERENCES users (id),
   CONSTRAINT c_recipient_user_id FOREIGN KEY (recipient_user_id) REFERENCES users (id),
   CONSTRAINT c_type_id FOREIGN KEY (type_id) REFERENCES task_type (id));
+  
+  CREATE  TABLE attachment (
+  id INT NOT NULL,
+  file_content BLOB NULL,
+  description VARCHAR(512) NULL ,
+  PRIMARY KEY (id) );
+  
+  CREATE  TABLE task_attachment (
+  task_id INT NOT NULL ,
+  attachment_id INT NOT NULL ,
+  PRIMARY KEY (task_id, attachment_id) ,
+  CONSTRAINT task_id
+    FOREIGN KEY (task_id )
+    REFERENCES task (id ),
+  CONSTRAINT attachment_id
+    FOREIGN KEY (attachment_id)
+    REFERENCES attachment (id));
+  
 
   
    
