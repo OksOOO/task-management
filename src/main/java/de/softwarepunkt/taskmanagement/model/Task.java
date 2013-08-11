@@ -51,8 +51,8 @@ public class Task implements Serializable{
 
 	@OneToMany
 	@JoinTable(name = "task_attachment", 
-	           joinColumns = { @JoinColumn(name = "task_id", referencedColumnName = "task_id") }, 
-	           inverseJoinColumns = { @JoinColumn(name = "attachment_id", referencedColumnName = "attachment_id") })
+	           joinColumns = { @JoinColumn(name = "ta_task_id", referencedColumnName = "task_id") }, 
+	           inverseJoinColumns = { @JoinColumn(name = "ta_attachment_id", referencedColumnName = "attachment_id") })
 	private Set<Task> tasks;
 	
 	public Integer getId() {

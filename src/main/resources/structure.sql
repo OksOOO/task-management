@@ -36,14 +36,14 @@ CREATE  TABLE task (
   PRIMARY KEY (id) );
   
   CREATE  TABLE task_attachment (
-  task_id INT NOT NULL ,
-  attachment_id INT NOT NULL ,
-  PRIMARY KEY (task_id, attachment_id) ,
-  CONSTRAINT task_id
-    FOREIGN KEY (task_id )
-    REFERENCES task (task_id ),
-  CONSTRAINT attachment_id
-    FOREIGN KEY (attachment_id)
+  ta_task_id INT NOT NULL ,
+  ta_attachment_id INT NOT NULL ,
+  PRIMARY KEY (ta_task_id, ta_attachment_id) ,
+  CONSTRAINT c_ta_task_id
+    FOREIGN KEY (ta_task_id)
+    REFERENCES task (task_id),
+  CONSTRAINT c_ta_attachment_id
+    FOREIGN KEY (ta_attachment_id)
     REFERENCES attachment (attachment_id));
   
 
