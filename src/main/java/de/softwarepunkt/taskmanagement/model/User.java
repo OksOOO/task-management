@@ -22,7 +22,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Integer id;
 	
 	@NotNull
 	@Size(min = 1, max = 45)
@@ -56,11 +56,11 @@ public class User {
 		this.recipientUserTasks = recipientUserTasks;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
