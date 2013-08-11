@@ -1,17 +1,22 @@
 package de.softwarepunkt.taskmanagement.model;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import java.io.Serializable;
 import java.sql.Clob;
 
 @Entity
-public class Task {
+public class Task implements Serializable{
 	
 	@Id
 	@GeneratedValue
@@ -44,6 +49,12 @@ public class Task {
 	@Column(name = "done", nullable = false)
 	private Boolean done;
 
+	@OneToMany
+	@JoinTable(name = "task_attachment", 
+	           joinColumns = { @JoinColumn(name = "task_id", referencedColumnName = "task_id") }, 
+	           inverseJoinColumns = { @JoinColumn(name = "attachment_id", referencedColumnName = "attachment_id") })
+	private Set<Task> tasks;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -116,4 +127,12 @@ public class Task {
 		this.done = done;
 	}
 
+	public Set<Task> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(Set<Task> tasks) {
+		this.tasks = tasks;
+	}
+	
 }
