@@ -1,8 +1,12 @@
 package de.softwarepunkt.taskmanagement.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -29,6 +33,28 @@ public class User {
 	@NotEmpty
 	@Email
 	private String email;
+	
+	@OneToMany(mappedBy="createUser")
+	private Set<Task> createUserTasks;
+	
+	@OneToMany(mappedBy="recipientUser")
+	private Set<Task> recipientUserTasks;
+
+	public Set<Task> getCreateUserTasks() {
+		return createUserTasks;
+	}
+
+	public void setCreateUserTasks(Set<Task> createUserTasks) {
+		this.createUserTasks = createUserTasks;
+	}
+
+	public Set<Task> getRecipientUserTasks() {
+		return recipientUserTasks;
+	}
+
+	public void setRecipientUserTasks(Set<Task> recipientUserTasks) {
+		this.recipientUserTasks = recipientUserTasks;
+	}
 
 	public Long getId() {
 		return id;
