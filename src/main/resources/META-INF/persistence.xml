@@ -7,11 +7,21 @@
    <persistence-unit name="primary">
       <!-- If you are running in a production environment, add a managed 
          data source, the example data source is just for proofs of concept! -->
-      <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
+      <!-- <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source> -->
       <properties>
          <!-- Properties for Hibernate -->
          <property name="hibernate.hbm2ddl.auto" value="validate" />
          <property name="hibernate.show_sql" value="false" />
+         <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+         <property name="hibernate.connection.password" value="109652"/>
+         <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/task_management"/>
+         <property name="hibernate.connection.username" value="root"/>
+         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+         <property name="hibernate.c3p0.min_size" value="5"/>
+         <property name="hibernate.c3p0.max_size" value="20"/>
+         <property name="hibernate.c3p0.timeout" value="300"/>
+         <property name="hibernate.c3p0.max_statements" value="50"/>
+         <property name="hibernate.c3p0.idle_test_period" value="3000"/>
       </properties>
    </persistence-unit>
 </persistence>

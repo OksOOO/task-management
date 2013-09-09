@@ -11,11 +11,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import java.io.Serializable;
 import java.sql.Clob;
 
 @Entity
+@Table(name = "task")
 public class Task implements Serializable{
 	
 	@Id
@@ -49,11 +51,11 @@ public class Task implements Serializable{
 	@Column(name = "done", nullable = false)
 	private Boolean done;
 
-	@OneToMany
+	/*@OneToMany
 	@JoinTable(name = "task_attachment", 
 	           joinColumns = { @JoinColumn(name = "ta_task_id", referencedColumnName = "task_id") }, 
 	           inverseJoinColumns = { @JoinColumn(name = "ta_attachment_id", referencedColumnName = "attachment_id") })
-	private Set<Task> tasks;
+	private Set<Task> tasks;*/
 	
 	public Integer getId() {
 		return id;
@@ -127,12 +129,12 @@ public class Task implements Serializable{
 		this.done = done;
 	}
 
-	public Set<Task> getTasks() {
+	/*public Set<Task> getTasks() {
 		return tasks;
 	}
 
 	public void setTasks(Set<Task> tasks) {
 		this.tasks = tasks;
-	}
+	}*/
 	
 }

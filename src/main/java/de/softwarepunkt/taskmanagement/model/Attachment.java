@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "Attachment")
+@Table(name = "attachment")
 public class Attachment implements Serializable{
 	
 	@Id
@@ -26,7 +26,7 @@ public class Attachment implements Serializable{
 	
 	@NotNull
 	@Size(min = 1, max = 255)
-	private String comment;
+	private String description;
 
 	public Integer getId() {
 		return id;
@@ -44,12 +44,12 @@ public class Attachment implements Serializable{
 		this.file = file;
 	}
 
-	public String getComment() {
-		return comment;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }

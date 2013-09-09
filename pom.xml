@@ -23,6 +23,7 @@
       <!-- Specify the JBoss AS directory to be the JBOSS_HOME environment 
          variable -->
       <jboss.home>${env.JBOSS_HOME}</jboss.home>
+      <org.richfaces.bom.version>4.3.3.Final</org.richfaces.bom.version>
    </properties>
 
    <repositories>
@@ -131,6 +132,47 @@
          <type>pom</type>
          <scope>provided</scope>
       </dependency>
+      
+      <!-- RichFaces -->
+      
+      <dependency>  
+         <groupId>org.richfaces</groupId>  
+         <artifactId>richfaces-bom</artifactId>  
+         <version>${org.richfaces.bom.version}</version>  
+         <scope>provided</scope>  
+         <type>pom</type>  
+      </dependency>
+      
+      <dependency>  
+        <groupId>org.richfaces.ui</groupId>  
+        <artifactId>richfaces-components-ui</artifactId> 
+        <version>4.3.3.Final</version> 
+      </dependency>  
+      
+      <dependency>  
+        <groupId>org.richfaces.core</groupId>  
+        <artifactId>richfaces-core-impl</artifactId>
+        <version>4.3.3.Final</version>  
+      </dependency>
+      
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.15</version>
+      </dependency> 
+      
+      <dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>4.2.5.Final</version>
+	  </dependency>
+	  
+	  <dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>4.2.5.Final</version>
+	  </dependency>
+                      
    </dependencies>
 
    <build>
